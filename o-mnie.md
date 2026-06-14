@@ -36,4 +36,4 @@ Pasjonuję się tańcem i podróżami — uwielbiam poznawać nowe miejsca i kul
 
 ---
 
-Jeśli chcesz lepiej zrozumieć swojego psa lub kota i zbudować z nim bezpieczną, opartą na zaufaniu relację — [zapraszam do współpracy](/umow-wizyte/)!
+Jeśli chcesz lepiej zrozumieć swojego psa lub kota i zbudować z nim bezpieczną, opartą na zaufaniu relację — [zapraszam do współpracy]({{ '/umow-wizyte/' | relative_url }})!

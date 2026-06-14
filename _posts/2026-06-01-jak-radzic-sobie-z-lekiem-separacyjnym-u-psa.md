@@ -57,4 +57,4 @@ Jeśli problem jest poważny — pies wyje przez cały dzień, niszczy drzwi lub
 
 Lęk separacyjny jest wyleczalny. Odpowiednio poprowadzony proces terapeutyczny daje trwałe efekty — zarówno dla psa, jak i dla jego opiekuna.
 
-Masz pytania? [Umów się na konsultację behawioralną](/umow-wizyte/) — razem opracujemy plan działania dopasowany do Twojego psa.
+Masz pytania? [Umów się na konsultację behawioralną]({{ '/umow-wizyte/' | relative_url }}) — razem opracujemy plan działania dopasowany do Twojego psa.

@@ -62,4 +62,4 @@ W takim przypadku warto przyjrzeć się nie tylko „objawowi", ale przyczynom.
 
 ---
 
-Masz kota, który niszczy meble pomimo drapaka? [Umów się na konsultację behawioralną](/umow-wizyte/) — razem znajdziemy rozwiązanie dopasowane do Twojego kota.
+Masz kota, który niszczy meble pomimo drapaka? [Umów się na konsultację behawioralną]({{ '/umow-wizyte/' | relative_url }}) — razem znajdziemy rozwiązanie dopasowane do Twojego kota.

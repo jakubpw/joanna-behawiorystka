@@ -67,4 +67,4 @@ Spotkania kontynuacyjne odbywają się zazwyczaj co 4 tygodnie. Analizujemy post
 
 ---
 
-Jeśli chcesz bezpiecznie pomóc swojemu psu lub kotu — [zapraszam do współpracy](/umow-wizyte/)!
+Jeśli chcesz bezpiecznie pomóc swojemu psu lub kotu — [zapraszam do współpracy]({{ '/umow-wizyte/' | relative_url }})!

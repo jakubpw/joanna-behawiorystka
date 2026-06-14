@@ -92,4 +92,4 @@ Samodzielna nauka sprawdza się przy psach bez poważnych problemów behawioraln
 
 ---
 
-Chcesz zacząć pracę z psem pod okiem specjalisty? [Umów się na indywidualny trening posłuszeństwa](/umow-wizyte/) — dopasuję program do Twojego psa i Twoich możliwości.
+Chcesz zacząć pracę z psem pod okiem specjalisty? [Umów się na indywidualny trening posłuszeństwa]({{ '/umow-wizyte/' | relative_url }}) — dopasuję program do Twojego psa i Twoich możliwości.
