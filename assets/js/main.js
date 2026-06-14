@@ -2,15 +2,19 @@
 (function () {
   const toggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
-  const navCta = document.querySelector('.nav-cta');
 
   if (!toggle) return;
+
+  function closeNav() {
+    toggle.setAttribute('aria-expanded', 'false');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
   toggle.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!open));
     navLinks.classList.toggle('open', !open);
-    if (navCta) navCta.classList.toggle('open', !open);
     document.body.style.overflow = open ? '' : 'hidden';
   });
 
@@ -24,13 +28,15 @@
     });
   });
 
+  // Close nav when a leaf link is tapped
+  navLinks.querySelectorAll('a:not(.has-dropdown > a)').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) closeNav();
+    });
+  });
+
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      toggle.setAttribute('aria-expanded', 'false');
-      navLinks.classList.remove('open');
-      if (navCta) navCta.classList.remove('open');
-      document.body.style.overflow = '';
-    }
+    if (window.innerWidth > 768) closeNav();
   });
 })();
 
