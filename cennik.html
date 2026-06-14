@@ -8,7 +8,7 @@ permalink: /cennik/
   <div class="container">
     <div class="page-hero-ornament">✦</div>
     <h1>Cennik</h1>
-    <p class="page-subtitle">Sprawdź ceny i przejdź do rezerwacji — tam wypełnisz ankietę i opłacisz wizytę BLIK-iem.</p>
+    <p class="page-subtitle">Kliknij usługę, aby przejść do rezerwacji — ankieta i płatność BLIK w kolejnym kroku.</p>
   </div>
 </section>
 
@@ -31,72 +31,114 @@ permalink: /cennik/
       <div class="cennik-category">
         <h3>Behawiorystyka</h3>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="350">
+        <div class="cennik-item"
+             data-service="Terapia behawioralna — pies (konsultacja wstępna)"
+             data-price="350"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Terapia behawioralna — konsultacja wstępna</div>
             <div class="cennik-item-desc">Pierwsza wizyta, szczegółowa analiza zachowania, plan pracy (~90 min)</div>
           </div>
           <!-- TODO: zaktualizuj ceny do swoich stawek -->
-          <div class="cennik-item-price">350 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">350 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="250">
+        <div class="cennik-item"
+             data-service="Terapia behawioralna — pies (kontynuacja)"
+             data-price="250"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Terapia behawioralna — wizyta kontynuacyjna</div>
             <div class="cennik-item-desc">Omówienie postępów i modyfikacja planu (~60 min)</div>
           </div>
-          <div class="cennik-item-price">250 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">250 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="200">
+        <div class="cennik-item"
+             data-service="Indywidualny trening posłuszeństwa"
+             data-price="200"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Indywidualny trening posłuszeństwa</div>
             <div class="cennik-item-desc">Jedna sesja treningowa (~60 min)</div>
           </div>
-          <div class="cennik-item-price">200 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">200 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="200">
+        <div class="cennik-item"
+             data-service="Trening medyczny i pielęgnacyjny — pies"
+             data-price="200"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Trening medyczny i pielęgnacyjny</div>
             <div class="cennik-item-desc">Nauka współpracy podczas zabiegów (~60 min)</div>
           </div>
-          <div class="cennik-item-price">200 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">200 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
       </div>
 
       <div class="cennik-category">
         <h3>Dietetyka</h3>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="300">
+        <div class="cennik-item"
+             data-service="Konsultacja dietetyczna — pies (wstępna)"
+             data-price="300"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Konsultacja dietetyczna — pierwsze spotkanie</div>
             <div class="cennik-item-desc">Wywiad, analiza, indywidualny plan żywieniowy (~75 min)</div>
           </div>
-          <div class="cennik-item-price">300 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">300 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="200">
+        <div class="cennik-item"
+             data-service="Konsultacja dietetyczna — pies (kontrolna)"
+             data-price="200"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Konsultacja dietetyczna — wizyta kontrolna</div>
             <div class="cennik-item-desc">Ocena postępów, modyfikacja diety (~45 min)</div>
           </div>
-          <div class="cennik-item-price">200 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">200 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="750">
+        <div class="cennik-item"
+             data-service="Terapia odchudzająca — pies (pakiet)"
+             data-price="750"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Terapia odchudzająca — pakiet (4 wizyty)</div>
             <div class="cennik-item-desc">Kompleksowy program redukcji masy ciała z pełnym wsparciem</div>
           </div>
-          <div class="cennik-item-price">750 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">750 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
       </div>
 
@@ -108,82 +150,105 @@ permalink: /cennik/
       <div class="cennik-category">
         <h3>Behawiorystyka</h3>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="350">
+        <div class="cennik-item"
+             data-service="Terapia behawioralna — kot (konsultacja wstępna)"
+             data-price="350"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Terapia behawioralna — konsultacja wstępna</div>
             <div class="cennik-item-desc">Pierwsza wizyta, szczegółowa analiza zachowania, plan pracy (~90 min)</div>
           </div>
-          <div class="cennik-item-price">350 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">350 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="250">
+        <div class="cennik-item"
+             data-service="Terapia behawioralna — kot (kontynuacja)"
+             data-price="250"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Terapia behawioralna — wizyta kontynuacyjna</div>
             <div class="cennik-item-desc">Omówienie postępów i modyfikacja planu (~60 min)</div>
           </div>
-          <div class="cennik-item-price">250 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">250 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="200">
+        <div class="cennik-item"
+             data-service="Trening medyczny i pielęgnacyjny — kot"
+             data-price="200"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Trening medyczny i pielęgnacyjny</div>
             <div class="cennik-item-desc">Nauka współpracy podczas zabiegów (~60 min)</div>
           </div>
-          <div class="cennik-item-price">200 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">200 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
       </div>
 
       <div class="cennik-category">
         <h3>Dietetyka</h3>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="300">
+        <div class="cennik-item"
+             data-service="Konsultacja dietetyczna — kot (wstępna)"
+             data-price="300"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Konsultacja dietetyczna — pierwsze spotkanie</div>
             <div class="cennik-item-desc">Wywiad, analiza, indywidualny plan żywieniowy (~75 min)</div>
           </div>
-          <div class="cennik-item-price">300 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">300 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="200">
+        <div class="cennik-item"
+             data-service="Konsultacja dietetyczna — kot (kontrolna)"
+             data-price="200"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Konsultacja dietetyczna — wizyta kontrolna</div>
             <div class="cennik-item-desc">Ocena postępów, modyfikacja diety (~45 min)</div>
           </div>
-          <div class="cennik-item-price">200 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">200 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
 
-        <div class="cennik-item">
-          <input type="checkbox" data-price="750">
+        <div class="cennik-item"
+             data-service="Terapia odchudzająca — kot (pakiet)"
+             data-price="750"
+             data-href="{{ '/umow-wizyte/' | relative_url }}"
+             role="link" tabindex="0">
           <div class="cennik-item-info">
             <div class="cennik-item-name">Terapia odchudzająca — pakiet (4 wizyty)</div>
             <div class="cennik-item-desc">Kompleksowy program redukcji masy ciała z pełnym wsparciem</div>
           </div>
-          <div class="cennik-item-price">750 PLN</div>
+          <div class="cennik-item-cta">
+            <div class="cennik-item-price">750 PLN</div>
+            <span class="cennik-item-book">Umów →</span>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <!-- SUMMARY BAR -->
-    <div class="cennik-summary">
-      <div>
-        <div class="cennik-total-label">Łączna kwota</div>
-        <div class="cennik-total-value" id="cennik-total">0 PLN</div>
-      </div>
-      <!-- Stores selection in sessionStorage and navigates to booking page -->
-      <button id="cennik-book-btn" class="btn btn-gold" disabled
-              data-href="{{ '/umow-wizyte/' | relative_url }}">
-        Przejdź do rezerwacji →
-      </button>
-    </div>
-
     <div class="cennik-note">
-      Płatność BLIK odbywa się w kolejnym kroku — po wypełnieniu ankiety wstępnej.
+      Nie widzisz swojej usługi? <a href="{{ '/kontakt/' | relative_url }}">Napisz do mnie</a> — ustalimy indywidualny plan.
     </div>
 
   </div>

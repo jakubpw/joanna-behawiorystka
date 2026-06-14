@@ -790,27 +790,21 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 0.75rem;
   cursor: pointer;
   transition: all var(--transition);
+  text-decoration: none;
 }
 
 .cennik-item:hover {
   border-color: var(--gold);
   background: var(--black-hover);
+  transform: translateX(3px);
 }
 
-.cennik-item.selected {
-  border-color: var(--gold);
-  background: rgba(201, 168, 68, 0.07);
+.cennik-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 
-.cennik-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--gold);
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.cennik-item-info { flex: 1; }
+.cennik-item-info { flex: 1; min-width: 0; }
 
 .cennik-item-name {
   font-weight: 500;
@@ -824,12 +818,34 @@ p:last-child { margin-bottom: 0; }
   margin-top: 0.2rem;
 }
 
+.cennik-item-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
 .cennik-item-price {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--gold);
   white-space: nowrap;
+}
+
+.cennik-item-book {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.cennik-item:hover .cennik-item-book {
+  color: var(--gold);
 }
 
 .cennik-summary {
@@ -1500,6 +1516,49 @@ p:last-child { margin-bottom: 0; }
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 1.75rem;
+}
+
+/* Calendly link box (in success view) */
+.blik-link-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--black);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.blik-link-url {
+  flex: 1;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: monospace;
+  letter-spacing: 0;
+}
+
+.blik-link-copy {
+  background: none;
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.blik-link-copy:hover {
+  background: var(--gold-glow);
+  border-color: var(--gold);
 }
 
 /* Loading state */

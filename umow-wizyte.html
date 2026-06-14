@@ -42,13 +42,6 @@ permalink: /umow-wizyte/
         <p>Informacje o Twoim zwierzęciu pomogą mi lepiej przygotować się do konsultacji.</p>
       </div>
 
-      <!-- Pre-filled total from cennik (shown if user came from cennik) -->
-      <div id="cennik-prefill-notice" class="cennik-prefill" hidden>
-        <span>Wybrane usługi z cennika:</span>
-        <strong id="cennik-prefill-amount"></strong>
-        <button type="button" class="prefill-clear" id="cennik-prefill-clear" aria-label="Wyczyść">✕</button>
-      </div>
-
       <form id="intake-form" action="https://formspree.io/f/YOUR-FORM-ID" method="POST" novalidate>
 
         <div class="form-row">
@@ -113,16 +106,6 @@ permalink: /umow-wizyte/
           <label for="f-message">Opis problemu / powód konsultacji *</label>
           <textarea id="f-message" name="message" required
             placeholder="Opisz krótko, z czym się zgłaszasz. Im więcej szczegółów, tym lepiej przygotuję się do spotkania."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="f-time">Preferowana pora dnia</label>
-          <select id="f-time" name="preferred_time">
-            <option value="">— brak preferencji —</option>
-            <option>Rano (8:00–12:00)</option>
-            <option>Południe (12:00–16:00)</option>
-            <option>Popołudnie (16:00–20:00)</option>
-          </select>
         </div>
 
         <input type="hidden" name="_subject" value="Nowe zgłoszenie — wizyta behawiorystyczna">
@@ -211,7 +194,16 @@ permalink: /umow-wizyte/
     <div id="blik-success-view" hidden>
       <div class="blik-success-icon">✓</div>
       <h2 class="blik-success-title">Płatność przyjęta!</h2>
-      <p class="blik-success-text">Ankieta została wysłana. Teraz wybierz termin wizyty w kalendarzu.</p>
+      <p class="blik-success-text">Teraz wybierz termin w kalendarzu. Zapisz poniższy link — da Ci dostęp do kalendarza w każdej chwili.</p>
+
+      <div class="blik-link-box">
+        <span class="blik-link-url" id="blik-calendly-url"></span>
+        <button type="button" class="blik-link-copy" id="blik-copy-link">Kopiuj</button>
+      </div>
+      <p class="blik-hint" style="margin-bottom:1.5rem;">
+        Wyślij ten link na swój e-mail, jeśli chcesz wybrać termin później.
+      </p>
+
       <button class="btn btn-gold" id="blik-go-to-calendar" style="width:100%; padding:1rem;">
         Wybierz termin wizyty →
       </button>
