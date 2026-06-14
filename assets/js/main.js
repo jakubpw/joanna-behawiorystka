@@ -85,6 +85,113 @@
 })();
 
 
+// BLIK payment modal
+(function () {
+  const overlay   = document.getElementById('blik-modal');
+  if (!overlay) return;
+
+  const closeBtn    = document.getElementById('blik-close');
+  const codeInput   = document.getElementById('blik-code');
+  const confirmBtn  = document.getElementById('blik-confirm');
+  const amountEl    = document.getElementById('blik-amount');
+  const servicesList = document.getElementById('blik-services-list');
+  const formView    = document.getElementById('blik-form-view');
+  const successView = document.getElementById('blik-success-view');
+  const bookBtn     = document.getElementById('cennik-book-btn');
+
+  // Open modal when clicking the cennik summary button
+  if (bookBtn) {
+    bookBtn.addEventListener('click', () => {
+      // Sync amount from calculator
+      const totalEl = document.getElementById('cennik-total');
+      if (totalEl && amountEl) amountEl.textContent = totalEl.textContent;
+
+      // List selected services
+      if (servicesList) {
+        servicesList.innerHTML = '';
+        document.querySelectorAll('.cennik-item input[type="checkbox"]:checked').forEach(cb => {
+          const name = cb.closest('.cennik-item').querySelector('.cennik-item-name').textContent;
+          const li = document.createElement('li');
+          li.textContent = name;
+          servicesList.appendChild(li);
+        });
+      }
+
+      // Reset form state
+      codeInput.value = '';
+      codeInput.classList.remove('valid');
+      confirmBtn.disabled = true;
+      confirmBtn.textContent = 'Potwierdź płatność';
+      confirmBtn.classList.remove('loading');
+      formView.hidden = false;
+      successView.hidden = true;
+
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => codeInput.focus(), 100);
+    });
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Format BLIK code: digits only, display as "XXX XXX"
+  codeInput.addEventListener('input', () => {
+    const digits = codeInput.value.replace(/\D/g, '').slice(0, 6);
+    codeInput.value = digits.length > 3 ? digits.slice(0, 3) + ' ' + digits.slice(3) : digits;
+    const valid = digits.length === 6;
+    confirmBtn.disabled = !valid;
+    codeInput.classList.toggle('valid', valid);
+  });
+
+  confirmBtn.addEventListener('click', () => {
+    const digits = codeInput.value.replace(/\D/g, '');
+    if (digits.length !== 6) return;
+
+    // =========================================================
+    // TODO: INTEGRACJA Z SYSTEMEM PŁATNOŚCI
+    // =========================================================
+    // Aby włączyć prawdziwe płatności BLIK, zastąp poniższy
+    // blok wywołaniem API PayU / Przelewy24 / Tpay.
+    //
+    // Przykład (PayU):
+    //   confirmBtn.classList.add('loading');
+    //   confirmBtn.textContent = 'Przetwarzanie...';
+    //   fetch('/api/blik', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ code: digits, amount: <kwota w groszach> })
+    //   })
+    //   .then(r => r.json())
+    //   .then(data => {
+    //     if (data.success) showSuccess();
+    //     else showError(data.message);
+    //   });
+    //
+    // WAŻNE: klucze API muszą być po stronie serwera (Netlify Functions /
+    // Vercel API Routes), NIE w tym pliku.
+    // =========================================================
+
+    // MOCKUP — symuluje oczekiwanie i pokazuje sukces
+    confirmBtn.classList.add('loading');
+    confirmBtn.textContent = 'Przetwarzanie…';
+
+    setTimeout(showSuccess, 1600);
+  });
+
+  function showSuccess() {
+    formView.hidden = true;
+    successView.hidden = false;
+  }
+})();
+
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href*="#"]').forEach(link => {
   link.addEventListener('click', e => {
