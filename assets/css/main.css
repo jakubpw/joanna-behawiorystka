@@ -351,7 +351,7 @@ p:last-child { margin-bottom: 0; }
 /* Services strip */
 .services-strip {
   background: var(--black-soft);
-  padding: 5rem 0;
+  padding: 4.5rem 0;
   border-top: 1px solid var(--gold-border);
 }
 
@@ -402,7 +402,7 @@ p:last-child { margin-bottom: 0; }
 
 /* About preview */
 .about-preview {
-  padding: 6rem 0;
+  padding: 5rem 0;
   background: var(--black);
 }
 
@@ -456,7 +456,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Articles preview */
 .articles-preview {
-  padding: 6rem 0;
+  padding: 5rem 0;
   background: var(--black-soft);
   border-top: 1px solid var(--gold-border);
 }
@@ -545,7 +545,7 @@ p:last-child { margin-bottom: 0; }
 
 /* CTA Banner */
 .cta-banner {
-  padding: 6rem 0;
+  padding: 5rem 0;
   background: var(--black);
   border-top: 1px solid var(--gold-border);
   text-align: center;
@@ -1283,8 +1283,35 @@ p:last-child { margin-bottom: 0; }
   .nav-toggle { display: flex; }
 
   /* Hero */
-  .hero { min-height: 70vh; }
-  .hero-content { padding: 4rem 1.5rem; }
+  .hero { min-height: 62vh; }
+  .hero-content { padding: 3rem 1.5rem; }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.14em; }
+  .hero-subtitle { margin-bottom: 2rem; }
+
+  /* Homepage sections — tighter padding on mobile */
+  .services-strip   { padding: 3rem 0; }
+  .about-preview    { padding: 3.5rem 0; }
+  .articles-preview { padding: 3.5rem 0; }
+  .cta-banner       { padding: 3.5rem 0; }
+  .page-hero        { padding: 3rem 0 2.5rem; }
+  .page-content     { padding: 3rem 0; }
+  .cennik           { padding: 2rem 0 3rem; }
+  .booking-page     { padding: 2rem 0 3rem; }
+
+  .services-strip .section-label  { margin-bottom: 1.5rem; }
+  .articles-preview .section-label { margin-bottom: 1.5rem; }
+  .articles-grid  { margin-bottom: 2rem; }
+
+  /* Service cards */
+  .service-card { padding: 1.75rem 1.5rem; }
+
+  /* About preview — hide decorative frame, fix image on mobile */
+  .about-preview-frame { display: none; }
+  .about-preview-image-placeholder { aspect-ratio: 16/9; }
+  .about-preview-grid { gap: 2.5rem; }
+
+  /* Species toggle — more compact */
+  .species-btn { padding: 0.75rem 2rem; font-size: 1rem; }
 
   /* Grids */
   .services-grid { grid-template-columns: 1fr; }
@@ -1298,13 +1325,29 @@ p:last-child { margin-bottom: 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .species-toggle { flex-direction: column; align-items: center; }
-  .cennik-summary { flex-direction: column; text-align: center; }
+
+  /* Booking form */
+  .booking-section-header { margin-bottom: 1.75rem; }
+  .step-indicator-bar { margin-bottom: 2rem; }
+  .form-submit-area { margin-top: 1.5rem; }
 }
 
 @media (max-width: 480px) {
+  .hero { min-height: 55vh; }
+  .hero-content { padding: 2.25rem 1.25rem; }
+  .hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.1em; }
   .hero-buttons { flex-direction: column; align-items: center; }
-  .page-hero { padding: 3.5rem 0 3rem; }
+  .page-hero { padding: 2.5rem 0 2rem; }
   .service-section { padding: 3rem 0; }
+
+  /* Cennik items — hide "Umów →" label (whole row is tappable) */
+  .cennik-item { gap: 0.75rem; padding: 1rem 1.25rem; }
+  .cennik-item-book { display: none; }
+  .cennik-item-price { font-size: 1rem; }
+  .cennik-item-name { font-size: 0.9rem; }
+
+  /* Submit button — smaller text so it doesn't wrap */
+  .form-submit-btn { font-size: 0.82rem; letter-spacing: 0.04em; }
 }
 
 /* =====================================================
@@ -1567,11 +1610,6 @@ p:last-child { margin-bottom: 0; }
   opacity: 0.7;
 }
 
-@media (max-width: 480px) {
-  .blik-modal { padding: 2rem 1.25rem; }
-  .blik-code-input { font-size: 1.8rem; }
-}
-
 /* =====================================================
    BOOKING PAGE
    ===================================================== */
@@ -1735,8 +1773,12 @@ p:last-child { margin-bottom: 0; }
 }
 
 @media (max-width: 480px) {
-  .step-ind-connector { min-width: 24px; }
+  /* Step indicator — compact on very small screens */
+  .step-ind-connector { min-width: 24px; margin-top: 17px; }
   .step-ind-num { width: 36px; height: 36px; font-size: 0.95rem; }
-  .step-ind-label { font-size: 0.68rem; }
-  .step-ind-connector { margin-top: 17px; }
+  .step-ind-label { font-size: 0.66rem; }
+
+  /* BLIK modal */
+  .blik-modal { padding: 2rem 1.25rem; }
+  .blik-code-input { font-size: 1.8rem; }
 }
