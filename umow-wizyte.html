@@ -1,0 +1,140 @@
+---
+layout: default
+title: "Umów wizytę"
+permalink: /umow-wizyte/
+---
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-ornament">📅</div>
+    <h1>Umów wizytę</h1>
+    <p class="page-subtitle">Wybierz termin i wypełnij wstępną ankietę — skontaktuję się z Tobą w ciągu 24 godzin.</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+
+    <!-- STEPS -->
+    <div class="booking-steps">
+      <div class="booking-step">
+        <div class="booking-step-number">1</div>
+        <h3>Wybierz termin</h3>
+        <p>Skorzystaj z kalendarza poniżej, aby zobaczyć dostępne terminy i zarezerwować odpowiadający Ci czas.</p>
+      </div>
+      <div class="booking-step">
+        <div class="booking-step-number">2</div>
+        <h3>Wypełnij ankietę</h3>
+        <p>Podczas rezerwacji odpowiedz na kilka pytań o Twoim zwierzęciu — to pomoże mi lepiej przygotować się do konsultacji.</p>
+      </div>
+      <div class="booking-step">
+        <div class="booking-step-number">3</div>
+        <h3>Potwierdź wizytę</h3>
+        <p>Otrzymasz e-mail z potwierdzeniem. W razie pytań możesz napisać do mnie bezpośrednio.</p>
+      </div>
+    </div>
+
+    <!-- CALENDLY EMBED -->
+    <div class="calendly-embed-container">
+      <!-- TODO: Joanna — po założeniu konta na https://calendly.com, wklej swój link poniżej.
+           Przykład: zmień YOUR-CALENDLY-LINK na np. joanna-michniewicz -->
+
+      <!-- Opcja A — Inline embed (zalecane): -->
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/YOUR-CALENDLY-LINK"
+           style="min-width:320px; height:700px;">
+      </div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+      <!-- Opcja B — Jeśli wolisz przycisk zamiast osadzonego widgetu, usuń powyższe i odkomentuj to:
+      <a href="https://calendly.com/YOUR-CALENDLY-LINK" target="_blank" class="btn btn-gold" style="font-size:1.1rem; padding: 1rem 3rem;">
+        📅 Otwórz kalendarz rezerwacji
+      </a>
+      -->
+
+      <p class="calendly-placeholder-text">
+        ⬆ Jeśli kalendarz się nie wyświetla, skontaktuj się bezpośrednio:<br>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </p>
+    </div>
+
+    <!-- INTAKE FORM -->
+    <div class="booking-intake">
+      <h3>Wstępna ankieta / pytania</h3>
+      <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem;">
+        Możesz też napisać do mnie bezpośrednio, opisując sytuację Twojego zwierzęcia.
+        Każde zgłoszenie traktuję indywidualnie — odpiszę w ciągu 24 godzin.
+      </p>
+
+      <!-- Formularz przez Formspree — TODO: zastąp YOUR-FORM-ID swoim ID z formspree.io -->
+      <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Imię i nazwisko *</label>
+            <input type="text" id="name" name="name" required placeholder="Jan Kowalski">
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="jan@example.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000">
+          </div>
+          <div class="form-group">
+            <label for="service">Rodzaj konsultacji *</label>
+            <select id="service" name="service" required>
+              <option value="">— wybierz —</option>
+              <optgroup label="Psy">
+                <option>Terapia behawioralna — pies</option>
+                <option>Trening posłuszeństwa — pies</option>
+                <option>Trening medyczny i pielęgnacyjny — pies</option>
+                <option>Dietetyka — pies</option>
+              </optgroup>
+              <optgroup label="Koty">
+                <option>Terapia behawioralna — kot</option>
+                <option>Trening medyczny i pielęgnacyjny — kot</option>
+                <option>Dietetyka — kot</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pet-name">Imię zwierzęcia *</label>
+            <input type="text" id="pet-name" name="pet_name" required placeholder="Np. Reks">
+          </div>
+          <div class="form-group">
+            <label for="pet-age">Wiek zwierzęcia</label>
+            <input type="text" id="pet-age" name="pet_age" placeholder="Np. 3 lata">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="preferred-time">Preferowane terminy</label>
+          <select id="preferred-time" name="preferred_time">
+            <option value="">— brak preferencji —</option>
+            <option>Rano (8:00–12:00)</option>
+            <option>Południe (12:00–16:00)</option>
+            <option>Popołudnie (16:00–20:00)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Opis sytuacji / dodatkowe informacje</label>
+          <textarea id="message" name="message" placeholder="Opisz krótko problem lub pytanie, z którym się zgłaszasz..."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="Nowe zgłoszenie — wizyta behawiorystyczna">
+        <input type="hidden" name="_language" value="pl">
+
+        <button type="submit" class="btn btn-gold form-submit">Wyślij zgłoszenie</button>
+      </form>
+    </div>
+
+  </div>
+</section>

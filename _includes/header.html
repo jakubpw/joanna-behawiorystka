@@ -1,0 +1,43 @@
+<header class="site-header">
+  <nav class="nav container">
+    <a href="{{ '/' | relative_url }}" class="nav-logo">
+      <span class="nav-logo-icon">🐾</span>
+      <span class="nav-logo-text">{{ site.title }}</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="{{ '/o-mnie/' | relative_url }}" {% if page.url == '/o-mnie/' %}class="active"{% endif %}>O mnie</a></li>
+
+      <li class="has-dropdown">
+        <a href="{{ '/psy/' | relative_url }}" {% if page.url == '/psy/' %}class="active"{% endif %}>
+          Psy <span class="dropdown-arrow">▾</span>
+        </a>
+        <ul class="dropdown">
+          <li><a href="{{ '/psy/#terapia-behawioralna' | relative_url }}">Terapia behawioralna</a></li>
+          <li><a href="{{ '/psy/#trening-posluszenstawa' | relative_url }}">Trening posłuszeństwa</a></li>
+          <li><a href="{{ '/psy/#trening-medyczny' | relative_url }}">Trening medyczny</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="{{ '/koty/' | relative_url }}" {% if page.url == '/koty/' %}class="active"{% endif %}>
+          Koty <span class="dropdown-arrow">▾</span>
+        </a>
+        <ul class="dropdown">
+          <li><a href="{{ '/koty/#terapia-behawioralna' | relative_url }}">Terapia behawioralna</a></li>
+          <li><a href="{{ '/koty/#trening-medyczny' | relative_url }}">Trening medyczny</a></li>
+        </ul>
+      </li>
+
+      <li><a href="{{ '/dietetyka/' | relative_url }}" {% if page.url == '/dietetyka/' %}class="active"{% endif %}>Dietetyka</a></li>
+      <li><a href="{{ '/cennik/' | relative_url }}" {% if page.url == '/cennik/' %}class="active"{% endif %}>Cennik</a></li>
+      <li><a href="{{ '/kontakt/' | relative_url }}" {% if page.url == '/kontakt/' %}class="active"{% endif %}>Kontakt</a></li>
+    </ul>
+
+    <a href="{{ '/umow-wizyte/' | relative_url }}" class="btn btn-gold nav-cta">Umów wizytę</a>
+  </nav>
+</header>

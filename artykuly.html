@@ -1,0 +1,41 @@
+---
+layout: default
+title: "Artykuły i porady"
+permalink: /artykuly/
+---
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-ornament">✦</div>
+    <h1>Artykuły i porady</h1>
+    <p class="page-subtitle">Przydatne wskazówki dla właścicieli psów i kotów.</p>
+  </div>
+</section>
+
+<section class="articles-page">
+  <div class="container">
+    <div class="articles-grid">
+      {% for post in site.posts %}
+      <article class="article-card">
+        {% if post.image %}
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="article-card-image">
+        {% else %}
+        <div class="article-card-image-placeholder">{{ post.icon | default: '🐾' }}</div>
+        {% endif %}
+        <div class="article-card-body">
+          <p class="article-card-meta">{{ post.date | date: "%d.%m.%Y" }}{% if post.categories %} · {{ post.categories | first }}{% endif %}</p>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 130 }}</p>
+          <a href="{{ post.url | relative_url }}" class="read-more">Czytaj więcej</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    {% if site.posts.size == 0 %}
+    <div style="text-align:center; padding: 4rem 0; color: var(--text-muted);">
+      <p style="font-size: 1.1rem;">Artykuły pojawią się wkrótce. Zapraszam!</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

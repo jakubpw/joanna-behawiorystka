@@ -1,0 +1,36 @@
+title: "Joanna Michniewicz"
+tagline: "Behawiorystyka & Dietetyka Zwierząt"
+description: "Profesjonalna pomoc behawioralna i dietetyczna dla psów i kotów. Terapia behawioralna, trening posłuszeństwa, dietetyka."
+baseurl: ""
+url: ""
+lang: pl
+author: "Joanna Michniewicz"
+
+# TODO: uzupełnij swoje dane kontaktowe
+email: "kontakt@example.com"
+phone: "+48 XXX XXX XXX"
+city: "Warszawa"
+
+# TODO: dodaj linki do swoich social mediów (lub zostaw puste)
+instagram_url: ""
+facebook_url: ""
+
+# TODO: po założeniu konta na Calendly, wklej swój link tutaj
+calendly_url: "https://calendly.com/twoj-link"
+
+# Ustawienia bloga
+permalink: /artykuly/:title/
+paginate: 6
+paginate_path: "/artykuly/strona/:num/"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM

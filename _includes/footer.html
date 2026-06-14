@@ -1,0 +1,44 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-logo">🐾 {{ site.title }}</p>
+        <p class="footer-tagline">{{ site.tagline }}</p>
+        <p class="footer-city">{{ site.city }}</p>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Oferta</h4>
+        <ul>
+          <li><a href="{{ '/psy/' | relative_url }}">Psy</a></li>
+          <li><a href="{{ '/koty/' | relative_url }}">Koty</a></li>
+          <li><a href="{{ '/dietetyka/' | relative_url }}">Dietetyka</a></li>
+          <li><a href="{{ '/cennik/' | relative_url }}">Cennik</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Informacje</h4>
+        <ul>
+          <li><a href="{{ '/o-mnie/' | relative_url }}">O mnie</a></li>
+          <li><a href="{{ '/kontakt/' | relative_url }}">Kontakt</a></li>
+          <li><a href="{{ '/artykuly/' | relative_url }}">Artykuły</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Kontakt</h4>
+        {% if site.email %}<p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
+        {% if site.phone %}<p><a href="tel:{{ site.phone | remove: ' ' }}">{{ site.phone }}</a></p>{% endif %}
+        <div class="footer-social">
+          {% if site.instagram_url %}<a href="{{ site.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>{% endif %}
+          {% if site.facebook_url %}<a href="{{ site.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>{% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </div>
+</footer>

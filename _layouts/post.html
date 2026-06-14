@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-ornament">✦</div>
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time>
+        {% if page.categories %} · {{ page.categories | join: ", " }}{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+    </div>
+  </header>
+
+  <div class="container container--narrow">
+    {% if page.image %}
+    <div class="post-cover">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="post-body">
+      {{ content }}
+    </div>
+
+    <div class="post-cta">
+      <div class="ornament-line"></div>
+      <p>Masz pytania? Umów się na konsultację.</p>
+      <a href="{{ '/umow-wizyte/' | relative_url }}" class="btn btn-gold">Umów wizytę</a>
+    </div>
+
+    <a href="{{ '/artykuly/' | relative_url }}" class="back-link">← Wróć do artykułów</a>
+  </div>
+</article>
