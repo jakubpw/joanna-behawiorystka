@@ -1512,3 +1512,172 @@ p:last-child { margin-bottom: 0; }
   .blik-modal { padding: 2rem 1.25rem; }
   .blik-code-input { font-size: 1.8rem; }
 }
+
+/* =====================================================
+   BOOKING PAGE
+   ===================================================== */
+.booking-page {
+  padding: 4rem 0 6rem;
+}
+
+/* Step indicator bar */
+.step-indicator-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 3rem;
+}
+
+.step-ind {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.step-ind-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-border);
+  background: var(--black-card);
+  color: var(--text-muted);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.step-ind-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.step-ind-connector {
+  flex: 1;
+  height: 2px;
+  min-width: 60px;
+  background: var(--gold-border);
+  align-self: flex-start;
+  margin-top: 21px; /* vertically center with the 44px circles */
+  transition: background var(--transition);
+}
+
+.step-ind.active .step-ind-num {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--black);
+  box-shadow: 0 0 0 4px rgba(201, 168, 68, 0.18);
+}
+.step-ind.active .step-ind-label { color: var(--gold); }
+
+.step-ind.done .step-ind-num {
+  border-color: var(--gold);
+  background: transparent;
+  color: var(--gold);
+}
+.step-ind.done .step-ind-label { color: var(--gold); }
+
+.step-ind-connector.done { background: var(--gold); }
+
+/* Section headers */
+.booking-section-header {
+  margin-bottom: 2.5rem;
+}
+.booking-section-header h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  border: none;
+}
+.booking-section-header p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.booking-success-header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.booking-success-badge {
+  display: inline-block;
+  background: rgba(92, 184, 92, 0.12);
+  border: 1px solid #5cb85c;
+  color: #5cb85c;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+/* Service price tag (below dropdown) */
+.service-price-tag {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.service-price-tag strong {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+/* Cennik prefill notice */
+.cennik-prefill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(201, 168, 68, 0.07);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+.cennik-prefill strong {
+  color: var(--gold);
+  margin-left: auto;
+}
+.prefill-clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius);
+  transition: color var(--transition);
+  line-height: 1;
+}
+.prefill-clear:hover { color: var(--gold); }
+
+/* Form submit area */
+.form-submit-area { margin-top: 2rem; }
+.form-submit-btn  { width: 100%; padding: 1rem; font-size: 1rem; }
+.form-submit-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.85rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .step-ind-connector { min-width: 24px; }
+  .step-ind-num { width: 36px; height: 36px; font-size: 0.95rem; }
+  .step-ind-label { font-size: 0.68rem; }
+  .step-ind-connector { margin-top: 17px; }
+}

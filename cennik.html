@@ -8,7 +8,7 @@ permalink: /cennik/
   <div class="container">
     <div class="page-hero-ornament">✦</div>
     <h1>Cennik</h1>
-    <p class="page-subtitle">Wybierz gatunek, zaznacz interesujące usługi i umów konsultację.</p>
+    <p class="page-subtitle">Sprawdź ceny i przejdź do rezerwacji — tam wypełnisz ankietę i opłacisz wizytę BLIK-iem.</p>
   </div>
 </section>
 
@@ -175,88 +175,16 @@ permalink: /cennik/
         <div class="cennik-total-label">Łączna kwota</div>
         <div class="cennik-total-value" id="cennik-total">0 PLN</div>
       </div>
-      <button id="cennik-book-btn" class="btn btn-gold" disabled>Zapłać BLIK i umów →</button>
+      <!-- Stores selection in sessionStorage and navigates to booking page -->
+      <button id="cennik-book-btn" class="btn btn-gold" disabled
+              data-href="{{ '/umow-wizyte/' | relative_url }}">
+        Przejdź do rezerwacji →
+      </button>
     </div>
 
     <div class="cennik-note">
-      <strong>Bezpieczna płatność BLIK</strong> — po zatwierdzeniu kodu przejdziesz do wyboru terminu wizyty.
+      Płatność BLIK odbywa się w kolejnym kroku — po wypełnieniu ankiety wstępnej.
     </div>
 
   </div>
 </section>
-
-<!-- =====================================================================
-     BLIK PAYMENT MODAL
-     ===================================================== -->
-<div class="blik-overlay" id="blik-modal" role="dialog" aria-modal="true" aria-label="Płatność BLIK">
-  <div class="blik-modal">
-    <button class="blik-close" id="blik-close" aria-label="Zamknij">✕</button>
-
-    <div id="blik-form-view">
-      <div class="blik-header">
-        <div class="blik-logo">BLIK</div>
-        <h2>Płatność BLIK</h2>
-      </div>
-
-      <div class="blik-summary-row">
-        <span class="blik-summary-label">Do zapłaty:</span>
-        <span class="blik-summary-amount" id="blik-amount">0 PLN</span>
-      </div>
-
-      <ul class="blik-services-list" id="blik-services-list"></ul>
-
-      <div class="blik-input-section">
-        <label for="blik-code">Wpisz 6-cyfrowy kod BLIK z aplikacji bankowej</label>
-        <input type="text" id="blik-code" class="blik-code-input"
-               maxlength="7" placeholder="_ _ _  _ _ _"
-               inputmode="numeric" autocomplete="one-time-code">
-        <p class="blik-hint">Kod ważny 2 minuty — wygeneruj go teraz w aplikacji bankowej</p>
-      </div>
-
-      <button class="btn btn-gold blik-confirm" id="blik-confirm" disabled>
-        Potwierdź płatność
-      </button>
-
-      <p class="blik-security-note">🔒 Bezpieczna płatność · Kod nie jest przesyłany do osób trzecich</p>
-    </div>
-
-    <!-- SUCCESS VIEW (pokazuje się po "płatności") -->
-    <div id="blik-success-view" hidden>
-      <div class="blik-success-icon">✓</div>
-      <h2 class="blik-success-title">Płatność przyjęta!</h2>
-      <p class="blik-success-text">Przejdź teraz do kalendarza, aby wybrać termin wizyty. Potwierdzenie otrzymasz na e-mail.</p>
-      <a href="{{ '/umow-wizyte/' | relative_url }}" class="btn btn-gold" style="width:100%; text-align:center; padding:1rem;">
-        Wybierz termin wizyty →
-      </a>
-    </div>
-
-  </div>
-</div>
-
-<!--
-  =====================================================================
-  INTEGRACJA BLIK — instrukcja dla Joanny
-  =====================================================================
-
-  Aktualnie modal jest MOCKUPEM — pokazuje sukces bez prawdziwej płatności.
-  Aby włączyć prawdziwe BLIK, potrzebujesz konta merchant u jednego z dostawców:
-
-  OPCJA A — PayU (najpopularniejsze w Polsce):
-    1. Załóż konto merchant na: https://payu.pl/dla-firm
-    2. Otrzymasz: POS ID, MD5 key, OAuth client_id / client_secret
-    3. Skontaktuj się z twórcą strony — podmieni funkcję handleBlikPayment()
-       w assets/js/main.js na prawdziwe wywołanie API PayU
-
-  OPCJA B — Przelewy24:
-    1. Załóż konto na: https://przelewy24.pl
-    2. Otrzymasz: Merchant ID, API key, CRC key
-    3. Skontaktuj się z twórcą strony — podmieni funkcję handleBlikPayment()
-
-  OPCJA C — Tpay:
-    1. Załóż konto na: https://tpay.com
-    2. Podobny proces jak wyżej
-
-  WAŻNE: klucze API muszą być po stronie serwera (np. Netlify Functions),
-  NIE w plikach JS na froncie. Twórca strony pomoże to skonfigurować.
-  ===================================================== -->
-

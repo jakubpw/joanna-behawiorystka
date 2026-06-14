@@ -8,115 +8,116 @@ permalink: /umow-wizyte/
   <div class="container">
     <div class="page-hero-ornament">📅</div>
     <h1>Umów wizytę</h1>
-    <p class="page-subtitle">Wybierz termin i wypełnij wstępną ankietę — skontaktuję się z Tobą w ciągu 24 godzin.</p>
+    <p class="page-subtitle">Wypełnij ankietę, opłać wizytę BLIK-iem, a następnie wybierz termin w kalendarzu.</p>
   </div>
 </section>
 
-<section class="page-content">
-  <div class="container">
+<section class="booking-page">
+  <div class="container container--narrow">
 
-    <!-- STEPS -->
-    <div class="booking-steps">
-      <div class="booking-step">
-        <div class="booking-step-number">1</div>
-        <h3>Wybierz termin</h3>
-        <p>Skorzystaj z kalendarza poniżej, aby zobaczyć dostępne terminy i zarezerwować odpowiadający Ci czas.</p>
+    <!-- STEP INDICATOR -->
+    <div class="step-indicator-bar">
+      <div class="step-ind active" id="step-ind-1">
+        <div class="step-ind-num">1</div>
+        <div class="step-ind-label">Ankieta</div>
       </div>
-      <div class="booking-step">
-        <div class="booking-step-number">2</div>
-        <h3>Wypełnij ankietę</h3>
-        <p>Podczas rezerwacji odpowiedz na kilka pytań o Twoim zwierzęciu — to pomoże mi lepiej przygotować się do konsultacji.</p>
+      <div class="step-ind-connector" id="step-conn-1"></div>
+      <div class="step-ind" id="step-ind-2">
+        <div class="step-ind-num">2</div>
+        <div class="step-ind-label">Płatność</div>
       </div>
-      <div class="booking-step">
-        <div class="booking-step-number">3</div>
-        <h3>Potwierdź wizytę</h3>
-        <p>Otrzymasz e-mail z potwierdzeniem. W razie pytań możesz napisać do mnie bezpośrednio.</p>
+      <div class="step-ind-connector" id="step-conn-2"></div>
+      <div class="step-ind" id="step-ind-3">
+        <div class="step-ind-num">3</div>
+        <div class="step-ind-label">Termin</div>
       </div>
     </div>
 
-    <!-- CALENDLY EMBED -->
-    <div class="calendly-embed-container">
-      <!-- TODO: Joanna — po założeniu konta na https://calendly.com, wklej swój link poniżej.
-           Przykład: zmień YOUR-CALENDLY-LINK na np. joanna-michniewicz -->
-
-      <!-- Opcja A — Inline embed (zalecane): -->
-      <div class="calendly-inline-widget"
-           data-url="https://calendly.com/jawalendowski"
-           style="min-width:320px; height:700px;">
+    <!-- ========================
+         STEP 1: INTAKE FORM
+         ======================== -->
+    <div id="booking-step-1">
+      <div class="booking-section-header">
+        <h2>Ankieta wstępna</h2>
+        <p>Informacje o Twoim zwierzęciu pomogą mi lepiej przygotować się do konsultacji.</p>
       </div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-      <!-- Opcja B — Jeśli wolisz przycisk zamiast osadzonego widgetu, usuń powyższe i odkomentuj to:
-      <a href="https://calendly.com/YOUR-CALENDLY-LINK" target="_blank" class="btn btn-gold" style="font-size:1.1rem; padding: 1rem 3rem;">
-        📅 Otwórz kalendarz rezerwacji
-      </a>
-      -->
+      <!-- Pre-filled total from cennik (shown if user came from cennik) -->
+      <div id="cennik-prefill-notice" class="cennik-prefill" hidden>
+        <span>Wybrane usługi z cennika:</span>
+        <strong id="cennik-prefill-amount"></strong>
+        <button type="button" class="prefill-clear" id="cennik-prefill-clear" aria-label="Wyczyść">✕</button>
+      </div>
 
-      <p class="calendly-placeholder-text">
-        ⬆ Jeśli kalendarz się nie wyświetla, skontaktuj się bezpośrednio:<br>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      </p>
-    </div>
-
-    <!-- INTAKE FORM -->
-    <div class="booking-intake">
-      <h3>Wstępna ankieta / pytania</h3>
-      <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem;">
-        Możesz też napisać do mnie bezpośrednio, opisując sytuację Twojego zwierzęcia.
-        Każde zgłoszenie traktuję indywidualnie — odpiszę w ciągu 24 godzin.
-      </p>
-
-      <!-- Formularz przez Formspree — TODO: zastąp YOUR-FORM-ID swoim ID z formspree.io -->
-      <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Imię i nazwisko *</label>
-            <input type="text" id="name" name="name" required placeholder="Jan Kowalski">
-          </div>
-          <div class="form-group">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="email" required placeholder="jan@example.com">
-          </div>
-        </div>
+      <form id="intake-form" action="https://formspree.io/f/YOUR-FORM-ID" method="POST" novalidate>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="phone">Telefon</label>
-            <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000">
+            <label for="f-name">Imię i nazwisko *</label>
+            <input type="text" id="f-name" name="name" required placeholder="Jan Kowalski">
           </div>
           <div class="form-group">
-            <label for="service">Rodzaj konsultacji *</label>
-            <select id="service" name="service" required>
-              <option value="">— wybierz —</option>
-              <optgroup label="Psy">
-                <option>Terapia behawioralna — pies</option>
-                <option>Trening posłuszeństwa — pies</option>
-                <option>Trening medyczny i pielęgnacyjny — pies</option>
-                <option>Dietetyka — pies</option>
-              </optgroup>
-              <optgroup label="Koty">
-                <option>Terapia behawioralna — kot</option>
-                <option>Trening medyczny i pielęgnacyjny — kot</option>
-                <option>Dietetyka — kot</option>
-              </optgroup>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="pet-name">Imię zwierzęcia *</label>
-            <input type="text" id="pet-name" name="pet_name" required placeholder="Np. Reks">
-          </div>
-          <div class="form-group">
-            <label for="pet-age">Wiek zwierzęcia</label>
-            <input type="text" id="pet-age" name="pet_age" placeholder="Np. 3 lata">
+            <label for="f-email">E-mail *</label>
+            <input type="email" id="f-email" name="email" required placeholder="jan@example.com">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="preferred-time">Preferowane terminy</label>
-          <select id="preferred-time" name="preferred_time">
+          <label for="f-phone">Telefon</label>
+          <input type="tel" id="f-phone" name="phone" placeholder="+48 000 000 000">
+        </div>
+
+        <div class="form-group">
+          <label for="f-service">Rodzaj konsultacji *</label>
+          <select id="f-service" name="service" required>
+            <option value="" data-price="0">— wybierz usługę —</option>
+            <optgroup label="🐕 Psy — behawiorystyka">
+              <option value="Terapia behawioralna — pies (konsultacja wstępna)" data-price="350">Terapia behawioralna — konsultacja wstępna (350 PLN)</option>
+              <option value="Terapia behawioralna — pies (kontynuacja)" data-price="250">Terapia behawioralna — wizyta kontynuacyjna (250 PLN)</option>
+              <option value="Indywidualny trening posłuszeństwa" data-price="200">Indywidualny trening posłuszeństwa (200 PLN)</option>
+              <option value="Trening medyczny i pielęgnacyjny — pies" data-price="200">Trening medyczny i pielęgnacyjny (200 PLN)</option>
+            </optgroup>
+            <optgroup label="🐕 Psy — dietetyka">
+              <option value="Konsultacja dietetyczna — pies (wstępna)" data-price="300">Konsultacja dietetyczna — pierwsze spotkanie (300 PLN)</option>
+              <option value="Konsultacja dietetyczna — pies (kontrolna)" data-price="200">Konsultacja dietetyczna — wizyta kontrolna (200 PLN)</option>
+              <option value="Terapia odchudzająca — pies (pakiet)" data-price="750">Terapia odchudzająca — pakiet 4 wizyty (750 PLN)</option>
+            </optgroup>
+            <optgroup label="🐈 Koty — behawiorystyka">
+              <option value="Terapia behawioralna — kot (konsultacja wstępna)" data-price="350">Terapia behawioralna — konsultacja wstępna (350 PLN)</option>
+              <option value="Terapia behawioralna — kot (kontynuacja)" data-price="250">Terapia behawioralna — wizyta kontynuacyjna (250 PLN)</option>
+              <option value="Trening medyczny i pielęgnacyjny — kot" data-price="200">Trening medyczny i pielęgnacyjny (200 PLN)</option>
+            </optgroup>
+            <optgroup label="🐈 Koty — dietetyka">
+              <option value="Konsultacja dietetyczna — kot (wstępna)" data-price="300">Konsultacja dietetyczna — pierwsze spotkanie (300 PLN)</option>
+              <option value="Konsultacja dietetyczna — kot (kontrolna)" data-price="200">Konsultacja dietetyczna — wizyta kontrolna (200 PLN)</option>
+              <option value="Terapia odchudzająca — kot (pakiet)" data-price="750">Terapia odchudzająca — pakiet 4 wizyty (750 PLN)</option>
+            </optgroup>
+          </select>
+          <div class="service-price-tag" id="service-price-tag" hidden>
+            Cena: <strong id="service-price-value"></strong>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-pet-name">Imię zwierzęcia *</label>
+            <input type="text" id="f-pet-name" name="pet_name" required placeholder="Np. Reks">
+          </div>
+          <div class="form-group">
+            <label for="f-pet-age">Wiek i rasa</label>
+            <input type="text" id="f-pet-age" name="pet_age" placeholder="Np. 3 lata, owczarek">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-message">Opis problemu / powód konsultacji *</label>
+          <textarea id="f-message" name="message" required
+            placeholder="Opisz krótko, z czym się zgłaszasz. Im więcej szczegółów, tym lepiej przygotuję się do spotkania."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="f-time">Preferowana pora dnia</label>
+          <select id="f-time" name="preferred_time">
             <option value="">— brak preferencji —</option>
             <option>Rano (8:00–12:00)</option>
             <option>Południe (12:00–16:00)</option>
@@ -124,17 +125,118 @@ permalink: /umow-wizyte/
           </select>
         </div>
 
-        <div class="form-group">
-          <label for="message">Opis sytuacji / dodatkowe informacje</label>
-          <textarea id="message" name="message" placeholder="Opisz krótko problem lub pytanie, z którym się zgłaszasz..."></textarea>
-        </div>
-
         <input type="hidden" name="_subject" value="Nowe zgłoszenie — wizyta behawiorystyczna">
         <input type="hidden" name="_language" value="pl">
+        <input type="hidden" id="f-blik-paid" name="blik_paid" value="pending">
 
-        <button type="submit" class="btn btn-gold form-submit">Wyślij zgłoszenie</button>
+        <div class="form-submit-area">
+          <button type="submit" class="btn btn-gold form-submit-btn">
+            Wyślij ankietę i przejdź do płatności →
+          </button>
+          <p class="form-submit-note">
+            Po wypełnieniu ankiety otworzy się okno płatności BLIK,<br>
+            a następnie kalendarz do wyboru terminu.
+          </p>
+        </div>
+
       </form>
+    </div>
+
+    <!-- ========================
+         STEP 3: CALENDLY
+         (hidden until payment done)
+         ======================== -->
+    <div id="booking-step-3" hidden>
+      <div class="booking-section-header booking-success-header">
+        <div class="booking-success-badge">✓ Płatność potwierdzona</div>
+        <h2>Wybierz termin wizyty</h2>
+        <p>Wybierz termin w kalendarzu poniżej. Po wybraniu otrzymasz potwierdzenie na e-mail.</p>
+      </div>
+
+      <!-- Calendly injected here by JS after payment -->
+      <div id="calendly-container"
+           data-url="{{ site.calendly_url }}"
+           style="min-height: 600px;">
+      </div>
+
+      <!--
+        TODO (dwa kalendarze — opcjonalne):
+        Jeśli chcesz mieć dwa osobne linki Calendly:
+          - jeden dla opłaconych wizyt (ten powyżej, pokazywany po BLIK)
+          - drugi dla darmowych konsultacji wstępnych (widoczny publicznie)
+        Stwórz dwa różne "Event Types" w Calendly i wklej odpowiednie linki
+        w _config.yml jako calendly_url (opłacone) i calendly_free_url (bezpłatne).
+        Twórca strony podmieni odpowiedni data-url powyżej na {{ site.calendly_free_url }}.
+      -->
     </div>
 
   </div>
 </section>
+
+<!-- ========================
+     BLIK PAYMENT MODAL
+     ======================== -->
+<div class="blik-overlay" id="blik-modal" role="dialog" aria-modal="true" aria-label="Płatność BLIK">
+  <div class="blik-modal">
+    <button class="blik-close" id="blik-close" aria-label="Zamknij">✕</button>
+
+    <div id="blik-form-view">
+      <div class="blik-header">
+        <div class="blik-logo">BLIK</div>
+        <h2>Płatność BLIK</h2>
+      </div>
+
+      <div class="blik-summary-row">
+        <span class="blik-summary-label">Do zapłaty:</span>
+        <span class="blik-summary-amount" id="blik-amount">0 PLN</span>
+      </div>
+
+      <ul class="blik-services-list" id="blik-services-list"></ul>
+
+      <div class="blik-input-section">
+        <label for="blik-code">Wpisz 6-cyfrowy kod BLIK z aplikacji bankowej</label>
+        <input type="text" id="blik-code" class="blik-code-input"
+               maxlength="7" placeholder="_ _ _  _ _ _"
+               inputmode="numeric" autocomplete="one-time-code">
+        <p class="blik-hint">Kod ważny 2 minuty — wygeneruj go teraz w aplikacji bankowej</p>
+      </div>
+
+      <button class="btn btn-gold blik-confirm" id="blik-confirm" disabled>
+        Potwierdź płatność
+      </button>
+
+      <p class="blik-security-note">🔒 Bezpieczna płatność · Kod nie jest przesyłany do osób trzecich</p>
+    </div>
+
+    <div id="blik-success-view" hidden>
+      <div class="blik-success-icon">✓</div>
+      <h2 class="blik-success-title">Płatność przyjęta!</h2>
+      <p class="blik-success-text">Ankieta została wysłana. Teraz wybierz termin wizyty w kalendarzu.</p>
+      <button class="btn btn-gold" id="blik-go-to-calendar" style="width:100%; padding:1rem;">
+        Wybierz termin wizyty →
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!--
+  =====================================================================
+  INTEGRACJA BLIK — instrukcja dla Joanny
+  =====================================================================
+
+  Modal jest MOCKUPEM — pokazuje sukces bez prawdziwej płatności.
+  Aby włączyć prawdziwe BLIK, potrzebujesz konta merchant:
+
+  OPCJA A — PayU (najpopularniejsze w Polsce):
+    Załóż konto merchant na: https://payu.pl/dla-firm
+    Otrzymasz: POS ID, MD5 key, OAuth client_id / client_secret
+    Skontaktuj się z twórcą strony — podmieni funkcję handleBlikPayment()
+    w assets/js/main.js na prawdziwe wywołanie API PayU
+
+  OPCJA B — Przelewy24: https://przelewy24.pl
+  OPCJA C — Tpay:       https://tpay.com
+
+  WAŻNE: klucze API muszą być po stronie serwera (Netlify Functions),
+  NIE w plikach JS na froncie. Twórca strony pomoże to skonfigurować.
+  ===================================================== -->
